@@ -1,12 +1,19 @@
+import Header from "./components/Header/Header.jsx"
+import Footer from "./components/Footer/Footer.jsx"
+import {Outlet} from "react-router-dom"
 
-
-function App() {
+const App = () => {
   
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">My app is running </h1>
-    </>
+    <div>
+    
+      <Header/>
+      <Outlet/>
+      <Footer/>
+
+
+    </div>
   )
 }
 
