@@ -1,16 +1,21 @@
-import ContactUs from './components/contactUS/contactus'
-import Login from './components/signin/Login'
-import Signup from './components/signup/Signup'
+
+import Header from "./components/Header/Header.jsx"
+import Footer from "./components/Footer/Footer.jsx"
+import {Outlet} from "react-router-dom"
 
 const App = () => {
+  
+
   return (
     <div>
-      <Login/>
-      <Signup/>
-      <ContactUs/>
+    
+      <Header/>
+      <Outlet/>
+      <Footer/>
+
 
     </div>
-    
+
   )
 }
 export default App
