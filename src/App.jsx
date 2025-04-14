@@ -1,13 +1,16 @@
+import ContactUs from './components/contactUS/contactus'
+import Login from './components/signin/Login'
+import Signup from './components/signup/Signup'
 
-
-function App() {
-  
-
+const App = () => {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">My app is running </h1>
-    </>
+    <div>
+      <Login/>
+      <Signup/>
+      <ContactUs/>
+
+    </div>
+    
   )
 }
-
 export default App
