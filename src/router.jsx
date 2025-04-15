@@ -16,7 +16,7 @@ const AppRouter = () => {
   return (
     <>
       <Router>
-        <Header/>
+        <Header />
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/about' element={<AboutUs />} />
@@ -25,10 +25,10 @@ const AppRouter = () => {
           <Route path='/signup' element={<Signup />} />
           <Route path='/upload' element={<Upload />} />
           <Route path='/leaderboard' element={<LeaderBoard />} />
-          <Route path='/profile' element={<Profile/>} />
-          <Route path='/documents' element={<Documents/>} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/documents' element={<Documents />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </>
   );
