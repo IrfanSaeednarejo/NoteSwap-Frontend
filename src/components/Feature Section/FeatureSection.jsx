@@ -32,8 +32,7 @@ const FeatureSection = () => {
             Campus Buzz
             </h3>
             <p className='text-gray-500 dark:text-gray-400'>
-            Promote top contributors, events, and study drives using built-in marketing tools to help students discover trending content and stay engaged.
-            </p>
+            Highlight top contributors, events, and study drives to keep students interested and help them find helpful content.            </p>
           </div>
           <div>
             <div className='flex items-center justify-center w-10 h-10 mb-4 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-900'>
@@ -46,9 +45,10 @@ const FeatureSection = () => {
                 <path d='M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z'></path>
               </svg>
             </div>
-            <h3 className='mb-2 text-xl font-bold dark:text-white'>Fair Use & Academic Integrity</h3>
+            <h3 className='mb-2 text-xl font-bold dark:text-white'>Fair Use Policy
+            </h3>
             <p className='text-gray-500 dark:text-gray-400'>
-            Ensure every uploaded document aligns with university policies through user agreements and content moderation, keeping the platform compliant and ethical.
+            Uploaded document aligns with university policies keeping the platform compliant and ethical.
             </p>
           </div>
           <div>
@@ -71,7 +71,7 @@ const FeatureSection = () => {
             Auto-Credit & Upload Rewards
             </h3>
             <p className='text-gray-500 dark:text-gray-400'>
-            Automate credit earning, leaderboard updates, and notifications when someone downloads your file, so you focus on learning, not logistics.
+            Credit earning, leaderboard updates, and Monthly Rewards o the basis of Credits achieved
 
 
             </p>
@@ -92,9 +92,9 @@ const FeatureSection = () => {
                 ></path>
               </svg>
             </div>
-            <h3 className='mb-2 text-xl font-bold dark:text-white'>Credit Economy System</h3>
+            <h3 className='mb-2 text-xl font-bold dark:text-white'>Credit System</h3>
             <p className='text-gray-500 dark:text-gray-400'>
-            A simple yet smart points system: earn credits by uploading, spend them to download. Track contributions and balance for a gamified document-sharing experience.
+            Earn credits by uploading, spend them to download.
 
 
             </p>
@@ -114,7 +114,7 @@ const FeatureSection = () => {
             Effortless File Management
             </h3>
             <p className='text-gray-500 dark:text-gray-400'>
-            Backend built with Mongodb and Cloudinary Auth ensures fast, secure, and organized handling of uploads, downloads, and user activities.
+            Backend built with Mongodb and Cloudinary Auth ensures fast, secure, and organized handling of uploads.
 
 
             </p>
@@ -135,11 +135,10 @@ const FeatureSection = () => {
               </svg>
             </div>
             <h3 className='mb-2 text-xl font-bold dark:text-white'>
-              Operations
+              User Experience
             </h3>
             <p className='text-gray-500 dark:text-gray-400'>
-              Keep your company’s lights on with customizable, iterative, and
-              structured workflows built for all efficient teams and individual.
+              Structured Workflow to ensure smooth operations and user experience.
             </p>
           </div>
         </div>
