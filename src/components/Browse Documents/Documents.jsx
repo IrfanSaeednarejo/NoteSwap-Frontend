@@ -3,14 +3,23 @@ import { useState, useEffect } from "react";
 import { getAllNotes, downloadNote } from "../../service";
 import toast, { Toaster } from "react-hot-toast";
 
+const Loader = () => {
+  return (
+    <div className='w-full h-screen flex justify-center items-center bg-gray-900'>
+      <div className='w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin'></div>
+    </div>
+  );
+};
+
 const BrowseDocumentsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [documents, setDocuments] = useState([]);
-
+  const [isloading, setIsloading] = useState(true);
   useEffect(() => {
     getAllNotes().then((data) => {
       if (data.success) {
         setDocuments(data.data);
+        setIsloading(false);
       } else {
         toast.error("Failed to fetch documents:", data.message);
       }
@@ -32,6 +41,10 @@ const BrowseDocumentsPage = () => {
   const filteredDocs = documents.filter((doc) =>
     doc.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  if (isloading) {
+    return <Loader />;
+  }
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 px-4 text-white font-sans'>

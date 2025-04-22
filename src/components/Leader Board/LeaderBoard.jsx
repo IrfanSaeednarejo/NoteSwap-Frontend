@@ -2,13 +2,24 @@ import React, { useState, useEffect } from "react";
 import { Crown } from "lucide-react";
 import { getLeaderboard } from "../../service";
 import toast, { Toaster } from "react-hot-toast";
+
+const Loader = () => {
+  return (
+    <div className='w-full h-screen flex justify-center items-center bg-gray-900'>
+      <div className='w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin'></div>
+    </div>
+  );
+};
+
 function LeaderBoard() {
   const [players, setPlayers] = useState([]);
+  const [isloading, setIsloading] = useState(true);
 
   useEffect(() => {
     getLeaderboard().then((data) => {
       if (data.success) {
         setPlayers(data.data);
+        setIsloading(false);
       } else {
         toast.error("Failed to fetch leaderboard data:", data.message);
       }
@@ -22,6 +33,10 @@ function LeaderBoard() {
     "from-gray-300 to-gray-500", // 🥈
     "from-orange-400 to-orange-600", // 🥉
   ];
+
+  if (isloading) {
+    return <Loader />;
+  }
 
   return (
     <div className='bg-gray-900 min-h-screen py-10 px-6 text-white font-sans'>

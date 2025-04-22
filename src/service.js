@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL =
   "https://tranquil-taiga-07463-22926c449a5a.herokuapp.com/" ||
-  "http://localhost:4000";
+  "http://localhost:4000/";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -68,27 +68,40 @@ export const getLeaderboard = async () => {
 
 export const uploadNote = async (noteData, file) => {
   try {
-    const formData = new FormData();
-    formData.append("title", noteData.title);
-    formData.append("description", noteData.description);
-    formData.append("department", noteData.department);
-    formData.append("tags", noteData.tags);
-    formData.append("file", file);
+    const formData = {
+      title: noteData.title,
+      description: noteData.description,
+      tags: noteData.tags,
+      department: noteData.department,
+    };
+    formData["file"] = file;
 
-    const response = await axiosInstance.post(
-      "students/upload",
-      formData,
-
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
+    console.log("sending data as : ", formData);
+    const response = await axiosInstance.post("notes/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
 
     return response.data;
   } catch (error) {
+    console.error("Upload error:", error.response?.data || error.message);
+    return { success: false, message: "Note upload failed" };
+  }
+};
+
+export const getProfile = async () => {
+  try {
+    const user = localStorage.getItem("user");
+    const response = await axiosInstance.get("students/profile", user._id, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Upload error:", error.response?.data || error.message);
     return { success: false, message: "Note upload failed" };
   }
 };

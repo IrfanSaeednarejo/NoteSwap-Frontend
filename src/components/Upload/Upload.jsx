@@ -11,19 +11,19 @@ function Upload() {
   });
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-    if (name === "file") {
-      setFormData((prev) => ({
-        ...prev,
-        file: files[0],
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFormData((prev) => ({
+      ...prev,
+      file: selectedFile,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -42,7 +42,6 @@ function Upload() {
 
     if (response.success) {
       toast.success("File uploaded successfully");
-
       setFormData({
         title: "",
         description: "",
@@ -50,8 +49,6 @@ function Upload() {
         department: "",
         file: "",
       });
-
-      // document.getElementById("fileInput").value = "";
     } else {
       toast.error(response.message || "File upload failed");
     }
@@ -107,7 +104,7 @@ function Upload() {
             type='file'
             name='file'
             accept='.pdf,.docx'
-            onChange={handleChange}
+            onChange={handleFileChange}
             className='w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white file:text-white file:bg-gray-700 file:border-0 file:mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
             required
           />
@@ -117,7 +114,7 @@ function Upload() {
         </div>
         <div className='mb-6'>
           <label className='block text-sm font-medium text-gray-300 mb-1'>
-            Tags
+            Department
           </label>
           <input
             type='text'
